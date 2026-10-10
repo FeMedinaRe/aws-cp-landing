@@ -1,17 +1,19 @@
 :root {
-  --bg: #f6f7fb;
-  --card: #ffffff;
-  --ink: #1b2340;
-  --muted: #5b6478;
+  color-scheme: dark;
+  --bg: #0f172a;
+  --card: #1a2440;
+  --ink: #eef2f7;
+  --muted: #b8c2d4;
   --brand: #232f3e;
   --accent: #ff9900;
-  --accent-ink: #1b2340;
-  --line: #e2e6f0;
-  --ok: #14753c;
-  --ok-bg: #e6f5ec;
-  --bad: #a1231f;
-  --bad-bg: #fdecea;
-  --focus: #1a73e8;
+  --accent-ink: #1a202c;
+  --line: #334155;
+  --link: #8ab4ff;
+  --ok: #4ade80;
+  --ok-bg: #0f3524;
+  --bad: #f87171;
+  --bad-bg: #3f1d1d;
+  --focus: #7cb3ff;
   --radius: 14px;
 }
 
@@ -35,11 +37,13 @@ body {
 
 .skip-link {
   position: absolute; left: 1rem; top: -3rem;
-  background: #fff; padding: 0.5rem 1rem; border-radius: 8px; z-index: 10;
+  background: var(--card); color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.5rem 1rem; border-radius: 8px; z-index: 10;
 }
 .skip-link:focus { top: 0.5rem; }
 
-a { color: #0b57d0; }
+a { color: var(--link); }
 a:hover { text-decoration-thickness: 2px; }
 
 :focus-visible {
@@ -51,6 +55,7 @@ a:hover { text-decoration-thickness: 2px; }
 .site-header {
   background: var(--brand); color: #fff;
   position: sticky; top: 0; z-index: 5;
+  border-bottom: 1px solid var(--line);
 }
 .header-inner {
   display: flex; gap: 1rem; align-items: center;
@@ -74,11 +79,11 @@ a:hover { text-decoration-thickness: 2px; }
   padding: 0.45rem 0.8rem; border-radius: 999px;
   border: 1px solid transparent;
 }
-.nav-list a[aria-current="page"] { background: #fff; color: var(--brand); font-weight: 700; }
+.nav-list a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
 .nav-list a:hover { border-color: #fff; }
 
 .notice {
-  background: #fff8e6; border: 1px solid #f0d48a;
+  background: #2a2210; border: 1px solid #8a6d2b; color: var(--ink);
   border-radius: var(--radius); padding: 0.7rem 1rem;
   margin-top: 1rem; font-size: 0.95rem;
 }
@@ -93,7 +98,7 @@ main { padding-bottom: 3rem; }
 .hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.5rem, 3vw, 2.2rem); }
 .weights { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; padding: 0; list-style: none; }
 .weights li {
-  background: var(--brand); color: #fff; border-radius: 999px;
+  background: var(--brand); color: #fff; border: 1px solid var(--line); border-radius: 999px;
   padding: 0.35rem 0.8rem; font-size: 0.9rem;
 }
 .weights strong { color: var(--accent); }
@@ -106,7 +111,7 @@ main { padding-bottom: 3rem; }
 }
 .card h2, .card h3 { margin: 0; }
 .peso {
-  display: inline-block; background: var(--accent);
+  display: inline-block; background: var(--accent); color: var(--accent-ink);
   border-radius: 999px; padding: 0.1rem 0.6rem; font-weight: 800;
 }
 
@@ -117,8 +122,8 @@ main { padding-bottom: 3rem; }
   font-size: 1rem; cursor: pointer; font-weight: 600;
   text-decoration: none; display: inline-block; text-align: center;
 }
-.btn:hover { filter: brightness(1.08); }
-.btn.secondary { background: #fff; color: var(--brand); }
+.btn:hover { filter: brightness(1.25); }
+.btn.secondary { background: #1e293b; color: var(--ink); border-color: var(--line); }
 .btn.small { padding: 0.35rem 0.7rem; font-size: 0.9rem; }
 .btn:disabled { opacity: 0.55; cursor: not-allowed; }
 
@@ -129,37 +134,41 @@ main { padding-bottom: 3rem; }
 .lesson h3 { margin-top: 0; }
 .key-points { margin: 0.5rem 0; padding-left: 1.2rem; }
 .example {
-  background: #eef4ff; border-left: 4px solid var(--focus);
+  background: #182742; border-left: 4px solid var(--focus); color: var(--ink);
   padding: 0.6rem 0.8rem; border-radius: 0 10px 10px 0;
 }
 
-.quiz-options fieldset { border: 1px solid var(--line); border-radius: 10px; margin: 0.5rem 0; }
+.quiz-options fieldset { border: 1px solid var(--line); border-radius: 10px; margin: 0.5rem 0; background: transparent; color: var(--ink); }
 .quiz-options legend { font-weight: 700; padding: 0 0.4rem; }
 .radio-row { display: block; padding: 0.4rem 0.2rem; }
 .opcion {
   display: block; border: 1px solid var(--line); border-radius: 10px;
-  padding: 0.6rem 0.8rem; margin: 0.4rem 0; cursor: pointer; background: #fff;
+  padding: 0.6rem 0.8rem; margin: 0.4rem 0; cursor: pointer;
+  background: #0f172a; color: var(--ink);
 }
-.opcion:has(input:checked) { border-color: var(--brand); background: #f2f5ff; }
-.opcion input { margin-right: 0.6rem; accent-color: var(--brand); width: 1.1rem; height: 1.1rem; }
-.opcion.correcta { border-color: var(--ok); background: var(--ok-bg); }
-.opcion.incorrecta { border-color: var(--bad); background: var(--bad-bg); }
+.opcion:has(input:checked) { border-color: var(--accent); background: #24365a; }
+.opcion input { margin-right: 0.6rem; accent-color: var(--accent); width: 1.1rem; height: 1.1rem; }
+.opcion.correcta { border-color: var(--ok); background: var(--ok-bg); color: var(--ink); }
+.opcion.incorrecta { border-color: var(--bad); background: var(--bad-bg); color: var(--ink); }
 
-.feedback { border-radius: 10px; padding: 0.7rem 1rem; margin-top: 0.8rem; }
+.feedback { border-radius: 10px; padding: 0.7rem 1rem; margin-top: 0.8rem; color: var(--ink); }
 .feedback.ok { background: var(--ok-bg); border: 1px solid var(--ok); }
 .feedback.bad { background: var(--bad-bg); border: 1px solid var(--bad); }
 
-.progress-bar { background: #e8ebf3; border-radius: 999px; overflow: hidden; height: 12px; }
+.progress-bar { background: #334155; border-radius: 999px; overflow: hidden; height: 12px; }
 .progress-bar > span { display: block; height: 100%; background: var(--ok); }
 
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; border-collapse: collapse; color: var(--ink); }
 th, td { border: 1px solid var(--line); padding: 0.5rem; text-align: left; }
-th { background: #eef1f7; }
+th { background: #232f45; color: var(--ink); }
+tbody tr { background: transparent; }
 
-.site-footer { background: #111a2b; color: #dfe5f2; padding: 1.5rem 0; }
+.site-footer { background: #0b1220; color: #dfe5f2; padding: 1.5rem 0; border-top: 1px solid var(--line); }
 .site-footer a { color: #ffc46b; }
 
 .quiz-meta { color: var(--muted); font-size: 0.95rem; }
+
+input, select, textarea { color-scheme: dark; }
 
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }
